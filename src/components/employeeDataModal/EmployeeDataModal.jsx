@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React  from 'react';
 import Modal, {
     ModalBody,
     ModalFooter,
@@ -10,8 +10,8 @@ import  Button  from '@atlaskit/button';
 import { useEmployee } from '../../context/Employeecontext';
 
 const EmployeeDataModal = () => {
-  const {tableData, currentItemId, isOpen, setIsOpen} = useEmployee();
-  const foundEmployee = tableData.find((data)=> data.id === currentItemId);
+//   const {tableData, currentItemId, isOpen, setIsOpen} = useEmployee();
+//   const foundEmployee = tableData.find((data)=> data.id === currentItemId);
   const closeModal = () => setIsOpen(false);
   
   return (

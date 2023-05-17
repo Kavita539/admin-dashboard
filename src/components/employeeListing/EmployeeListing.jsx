@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from "react";
+import React, {useState} from "react";
 import { useEmployee } from "../../context/Employeecontext";
 import { useFilter } from "../../context/Filtercontext";
 import DynamicTable from "@atlaskit/dynamic-table";
@@ -12,7 +12,7 @@ import Modal, {
   ModalTitle,
   ModalTransition,
 } from '@atlaskit/modal-dialog';
-import EmployeeDataModal from "../employeeDataModal/EmployeeDataModal";
+// import EmployeeDataModal from "../employeeDataModal/EmployeeDataModal";
 
 const EmployeeListing = () => {
 const {state} = useFilter();

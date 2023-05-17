@@ -2,7 +2,7 @@
 import EmployeeListing from "../../components/employeeListing/EmployeeListing";
 import FilterList from "../../components/filterList/FilterList";
 import Navbar from "../../components/navbar/Navbar";
-import EmployeeDataModal from '../../components/employeeDataModal/EmployeeDataModal';
+// import EmployeeDataModal from '../../components/employeeDataModal/EmployeeDataModal';
 import "./home.css";
 
 const Home = () => {
