@@ -10,7 +10,7 @@ useEffect(() => {
     (async () => {
         try {
             const res = await axios.get("https://dummyjson.com/users");
-            // console.log("users",res.data.users);
+            console.log("users",res.data.users);
             setTableData(res.data.users);
         } catch (err) {
             console.log(err)
@@ -55,7 +55,7 @@ const rows = tableData.map((employeeObj) => ({
 
   return (
     <div className="employee-listing-table">
-        <DynamicTable head={head} rows={rows} rowsPerPage={15}/>
+        <DynamicTable head={head} rows={rows} rowsPerPage={15} loadingSpinnerSize="large"/>
     </div>
   )
 }
