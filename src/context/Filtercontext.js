@@ -18,7 +18,8 @@ const FilterProvider = ({
         sortByAge: "",
 		bloodGroup: [],
 		gender: [],
-		university: []
+		university: [],
+		appliedSearchTerm: ""
 	});
 
 

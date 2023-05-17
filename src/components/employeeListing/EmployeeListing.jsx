@@ -1,17 +1,28 @@
-import React from "react";
+import React, {useCallback, useState} from "react";
 import { useEmployee } from "../../context/Employeecontext";
 import { useFilter } from "../../context/Filtercontext";
 import DynamicTable from "@atlaskit/dynamic-table";
+import Button from '@atlaskit/button/standard-button'
 import { selectFilteredEmployees, sortEmployees } from "../../utils/filterMethods";
 import { head } from "../../utils/tableDataHandler";
+import Modal, {
+  ModalBody,
+  ModalFooter,
+  ModalHeader,
+  ModalTitle,
+  ModalTransition,
+} from '@atlaskit/modal-dialog';
+import EmployeeDataModal from "../employeeDataModal/EmployeeDataModal";
 
 const EmployeeListing = () => {
 const {state} = useFilter();
-const { tableData }= useEmployee();
+const { tableData, setCurrentItemId }= useEmployee();
 const sortedList = sortEmployees(state.sort, tableData);
 const finalFilteredList = selectFilteredEmployees(state, sortedList);
+const [isOpen, setIsOpen] = useState(false);
 
-// console.log("data", tableData);
+const openModal = () => setIsOpen(true);
+const closeModal = () => setIsOpen(false);
 
 function createKey(input) {
     return input ? input.replace(/^(the|a|an)/, "").replace(/\s/g, "") : input;
@@ -45,12 +56,39 @@ const rows = finalFilteredList.map((employeeObj) => ({
         key: createKey(employeeObj.phone),
         content: employeeObj.phone,
       },
+      {
+        key: employeeObj.id,
+        content: <Button onClick={openModal}>Details</Button>
+      }
     ],
   }));
 
   return (
     <div className="employee-listing-table">
         <DynamicTable head={head} rows={rows} rowsPerPage={15} loadingSpinnerSize="large"/>
+        
+        <ModalTransition>
+        {isOpen && (
+          <Modal onClose={closeModal} v>
+            <ModalHeader>
+              <ModalTitle>Duplicate this page</ModalTitle>
+            </ModalHeader>
+            <ModalBody>
+              Duplicating this page will make it a child page of{' '}
+              <span >Search - user exploration</span>, in the{' '}
+              <span >Search & Smarts</span> space.
+            </ModalBody>
+            <ModalFooter>
+              <Button appearance="subtle" onClick={closeModal}>
+                Cancel
+              </Button>
+              <Button appearance="primary" onClick={closeModal} autoFocus>
+                Duplicate
+              </Button>
+            </ModalFooter>
+          </Modal>
+        )}
+      </ModalTransition>
     </div>
   )
 }

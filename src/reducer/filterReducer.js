@@ -48,10 +48,16 @@ const filterReducer = (state, action) => {
                 university: [...state.university, action.payload]
             };
 
+        case "APPLY_SEARCH_TERM":
+            return {
+                ...state,
+                appliedSearchTerm: action.payload,
+            };
+
         case "CLEAR":
             return {
                 ...state,
-                    sort: "",
+                sort: "",
                     bloodGroup: [],
                     gender: [],
                     university: []

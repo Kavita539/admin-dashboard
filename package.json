@@ -15,6 +15,7 @@
     "@atlaskit/page-header": "^10.4.1",
     "@atlaskit/radio": "^5.5.1",
     "@atlaskit/side-navigation": "^1.8.0",
+    "@atlaskit/textfield": "^5.4.2",
     "@atlaskit/tokens": "^1.4.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",

@@ -7,13 +7,13 @@ export const createHead = (withWidth) => {
                 key: "first",
                 content: "First Name",
                 isSortable: true,
-                width: withWidth ? 15 : undefined,
+                width: withWidth ? 10 : undefined,
             },
             {
                 key: "last",
                 content: "Last Name",
                 isSortable: true,
-                width: withWidth ? 15 : undefined,
+                width: withWidth ? 10 : undefined,
             },
             {
                 key: "company",
@@ -23,7 +23,7 @@ export const createHead = (withWidth) => {
             {
                 key: "blood",
                 content: "BloodGroup",
-                width: withWidth ? 15 : undefined,
+                width: withWidth ? 5 : undefined,
             },
             {
                 key: "email",
@@ -34,7 +34,12 @@ export const createHead = (withWidth) => {
             {
                 key: "phone",
                 content: "Phone Number",
-                width: withWidth ? 15 : undefined,
+                width: withWidth ? 10 : undefined,
+            },
+            {
+                key: "details",
+                content: "Details",
+                width: withWidth ? 10 : undefined,
             },
 
         ],

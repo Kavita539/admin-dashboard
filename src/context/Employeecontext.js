@@ -7,6 +7,9 @@ const useEmployee = () => useContext(employeeContext);
 
 const EmployeeProvider = ({children}) => {
 const [tableData, setTableData] = useState([]);
+const [currentItemId, setCurrentItemId] = useState("");
+const [isOpen, setIsOpen] = useState(false);
+console.log("state", isOpen);
 
 useEffect(() => {
     (async () => {
@@ -22,7 +25,7 @@ useEffect(() => {
 
 
       return(
-          <employeeContext.Provider value={{tableData}}>
+          <employeeContext.Provider value={{ tableData, currentItemId, setCurrentItemId, isOpen, setIsOpen }}>
               {children}
           </employeeContext.Provider>
       );

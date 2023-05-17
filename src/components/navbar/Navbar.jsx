@@ -1,10 +1,17 @@
-import React from 'react';
-import { AtlassianNavigation, Search } from '@atlaskit/atlassian-navigation';
+import React, {useState} from 'react';
+import { AtlassianNavigation} from '@atlaskit/atlassian-navigation';
+// import Textfield from "@atlaskit/textfield";
+// import { useFilter } from '../../context/Filtercontext';
+
+
+
 
 const Navbar = () => {
+  
+
   return (
-    <AtlassianNavigation/>
+    <AtlassianNavigation />
   )
-}
+};
 
 export default Navbar

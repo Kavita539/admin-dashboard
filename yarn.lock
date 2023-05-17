@@ -408,6 +408,17 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
+"@atlaskit/textfield@^5.4.2":
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/textfield/-/textfield-5.4.2.tgz#e1d1f447e8c63684d60e7eb31b4bfdb755533c92"
+  integrity sha512-vGVBrhiAiHhXPIONsVQEz/QlbJM38hapdmrND2gJLXovcl0WQbnIKfrpp+hKaBgwRgecXjXMwZ8DdbaUFG58Tw==
+  dependencies:
+    "@atlaskit/analytics-next" "^9.1.0"
+    "@atlaskit/theme" "^12.5.0"
+    "@atlaskit/tokens" "^1.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
+
 "@atlaskit/theme@^12.5.0":
   version "12.5.2"
   resolved "https://registry.npmjs.org/@atlaskit/theme/-/theme-12.5.2.tgz"
@@ -418,21 +429,9 @@
     "@atlaskit/tokens" "^1.4.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/tokens@^1.4.0":
+"@atlaskit/tokens@^1.4.0", "@atlaskit/tokens@^1.4.1":
   version "1.4.1"
   resolved "https://registry.npmjs.org/@atlaskit/tokens/-/tokens-1.4.1.tgz"
-  integrity sha512-bRuXt+eAyDM1bJAZ+tDSEA6IgQPMQDDJsYUCzsXNk23VkaTQcUP+RARVU5WzCVnyRjDOumqAxMiRmjEoau8QcQ==
-  dependencies:
-    "@atlaskit/ds-lib" "^2.2.0"
-    "@atlaskit/platform-feature-flags" "^0.2.0"
-    "@babel/runtime" "^7.0.0"
-    "@babel/traverse" "^7.20.0"
-    "@babel/types" "^7.20.0"
-    bind-event-listener "^2.1.1"
-
-"@atlaskit/tokens@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@atlaskit/tokens/-/tokens-1.4.1.tgz#4cad245d4b2c2f7dd9e81589c3f614fd45ea1921"
   integrity sha512-bRuXt+eAyDM1bJAZ+tDSEA6IgQPMQDDJsYUCzsXNk23VkaTQcUP+RARVU5WzCVnyRjDOumqAxMiRmjEoau8QcQ==
   dependencies:
     "@atlaskit/ds-lib" "^2.2.0"
