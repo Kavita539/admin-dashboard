@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { AtlassianNavigation} from '@atlaskit/atlassian-navigation';
 // import Textfield from "@atlaskit/textfield";
 // import { useFilter } from '../../context/Filtercontext';

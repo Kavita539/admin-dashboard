@@ -16,7 +16,7 @@ import Modal, {
 
 const EmployeeListing = () => {
 const {state} = useFilter();
-const { tableData, setCurrentItemId }= useEmployee();
+const { tableData }= useEmployee();
 const sortedList = sortEmployees(state.sort, tableData);
 const finalFilteredList = selectFilteredEmployees(state, sortedList);
 const [isOpen, setIsOpen] = useState(false);
