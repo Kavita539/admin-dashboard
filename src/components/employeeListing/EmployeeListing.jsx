@@ -3,7 +3,7 @@ import { useEmployee } from "../../context/Employeecontext";
 import { useFilter } from "../../context/Filtercontext";
 import DynamicTable from "@atlaskit/dynamic-table";
 import Button from '@atlaskit/button/standard-button'
-import { selectFilteredEmployees, sortEmployees } from "../../utils/filterMethods";
+import { selectFilteredEmployees, sortEmployees, handleSearch } from "../../utils/filterMethods";
 import { head } from "../../utils/tableDataHandler";
 import Modal, {
   ModalBody,
@@ -12,15 +12,19 @@ import Modal, {
   ModalTitle,
   ModalTransition,
 } from '@atlaskit/modal-dialog';
+import { Link } from "react-router-dom";
+import { useShortlist } from "../../context/ShortlistContext";
 import "./employeeListing.css";
 
 const EmployeeListing = () => {
 const {state} = useFilter();
 const { tableData, currentItemId, setCurrentItemId }= useEmployee();
-console.log("id", currentItemId);
+const {setShortlisted, shortlisted} = useShortlist();
+// console.log("id", currentItemId);
 const sortedList = sortEmployees(state.sort, tableData);
-const finalFilteredList = selectFilteredEmployees(state, sortedList);
-console.log("list", finalFilteredList);
+const filteredList = selectFilteredEmployees(state, sortedList);
+const finalList = handleSearch(filteredList, state.appliedSearchTerm);
+// console.log("list", finalFilteredList);
 const [isOpen, setIsOpen] = useState(false);
 
 const openModal = (id) => {
@@ -31,13 +35,28 @@ const openModal = (id) => {
 const closeModal = () => setIsOpen(false);
 
 const foundEmployee = tableData.find((data)=> data.id === currentItemId);
+ 
+const foundEmployee2 = shortlisted.find((data)=> data.id === currentItemId);
+
+
+const shortListHandler = () => {
   console.log("emp", foundEmployee);
+  setShortlisted((prev)=>{
+    return [...prev, foundEmployee]
+})
+}
+
+const unShortListHandler = () => {
+  const filteredCandidate = shortlisted.filter((data)=> data.id === currentItemId );
+  console.log("cand", filteredCandidate);
+  setShortlisted(filteredCandidate)
+}
 
 function createKey(input) {
     return input ? input.replace(/^(the|a|an)/, "").replace(/\s/g, "") : input;
 }
 
-const rows = finalFilteredList.map((employeeObj) => ({
+const rows = finalList.map((employeeObj) => ({
     key: employeeObj.id,
     cells: [
       
@@ -73,8 +92,11 @@ const rows = finalFilteredList.map((employeeObj) => ({
   }));
 
   return (
-    <div className="employee-listing-table">
-        <DynamicTable head={head} rows={rows} rowsPerPage={15} loadingSpinnerSize="large"/>
+    <div className="employee-listing">
+       <div className="employee-listing-table">
+       <DynamicTable head={head} rows={rows} rowsPerPage={15} loadingSpinnerSize="large"/>
+       </div>
+
         
         <ModalTransition>
         {isOpen && (
@@ -128,7 +150,12 @@ const rows = finalFilteredList.map((employeeObj) => ({
                 </div>
               </div>
               <div className="shortlist-cta">
-                <Button appearance="primary">shortList</Button>
+                {foundEmployee2 ?
+                (
+                <Button appearance="primary" onClick={unShortListHandler} isDisabled={true}>UnshortList</Button>
+                ) : (<Link to="/shortlist">
+                <Button appearance="primary" onClick={shortListHandler}>shortList</Button>
+                </Link>)}
               </div>
               </div>
             </ModalBody>

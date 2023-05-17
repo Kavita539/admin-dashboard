@@ -10,6 +10,7 @@
     "@atlaskit/dropdown-menu": "^11.9.0",
     "@atlaskit/dynamic-table": "^14.9.1",
     "@atlaskit/icon": "^21.12.1",
+    "@atlaskit/logo": "^13.14.2",
     "@atlaskit/menu": "^1.7.0",
     "@atlaskit/modal-dialog": "^12.5.1",
     "@atlaskit/page-header": "^10.4.1",

@@ -245,6 +245,18 @@
     "@emotion/react" "^11.7.1"
     react-uid "^2.2.0"
 
+"@atlaskit/logo@^13.14.2":
+  version "13.14.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/logo/-/logo-13.14.2.tgz#0b3d394b156cec31542bd1542b877df9b82cdeec"
+  integrity sha512-9nE9HF6ECljko48dIO0+Tk2Z0njsnGjCcJc9Efjer/4i7WrWjTgwuVnUa17cqOTx3aMkwhSVXyLOUB7qybF9wg==
+  dependencies:
+    "@atlaskit/ds-lib" "^2.2.0"
+    "@atlaskit/theme" "^12.5.0"
+    "@atlaskit/tokens" "^1.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
+    react-uid "^2.2.0"
+
 "@atlaskit/menu@^1.7.0":
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/@atlaskit/menu/-/menu-1.7.0.tgz#53dfac2b923b933d213d8812138bfd13658ac52f"

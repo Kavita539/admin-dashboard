@@ -1,7 +1,12 @@
+.employee-listing-table{
+    height: 115rem;
+}
+
 .modal-body{
     display: flex;
     flex-direction: column;
 }
+
 
 .employee-basic-details, .employee-secondary-details, .shortlist-cta{
     display: flex;

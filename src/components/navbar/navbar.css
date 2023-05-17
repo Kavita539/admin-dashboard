@@ -1,0 +1,16 @@
+.navbar{
+    padding: 1rem 5rem;
+    height: 4.5rem;
+    top: 0;
+    left: 0;
+    position: sticky;
+    grid-area: nav;
+    z-index: 4;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.text-field, .css-1o07z2d{
+    max-width: 25rem
+}

@@ -29,7 +29,7 @@ export const createHead = (withWidth) => {
                 key: "email",
                 content: "Email",
                 shouldTruncate: true,
-                width: withWidth ? 15 : undefined,
+                width: withWidth ? 10 : undefined,
             },
             {
                 key: "phone",
@@ -39,7 +39,7 @@ export const createHead = (withWidth) => {
             {
                 key: "details",
                 content: "Details",
-                width: withWidth ? 10 : undefined,
+                width: withWidth ? 5 : undefined,
             },
 
         ],

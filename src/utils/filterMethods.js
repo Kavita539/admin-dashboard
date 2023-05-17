@@ -37,10 +37,10 @@ const sortEmployees = (sortBy, data) => {
 
 const selectFilteredEmployees = (state, data) => {
     let tempData = [...data];
-  
-  
+
+
     if (state.bloodGroup.length > 0) {
-      tempData = tempData.filter(employee => state.bloodGroup.includes(employee.bloodGroup));
+        tempData = tempData.filter(employee => state.bloodGroup.includes(employee.bloodGroup));
     }
 
     if (state.gender.length > 0) {
@@ -49,13 +49,23 @@ const selectFilteredEmployees = (state, data) => {
 
     if (state.university.length > 0) {
         tempData = tempData.filter(employee => state.university.includes(employee.university));
-      }
+    }
 
-  
+
     return tempData;
-  };
+};
+
+const handleSearch = (list, searchTerm) => {
+    if (searchTerm !== "") {
+        return list.filter(item => {
+            return item.firstName.toLowerCase().includes(searchTerm.toLowerCase());
+        });
+    }
+    return list;
+};
 
 export {
     sortEmployees,
-    selectFilteredEmployees
+    selectFilteredEmployees,
+    handleSearch
 }
