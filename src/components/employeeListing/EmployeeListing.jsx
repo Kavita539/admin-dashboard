@@ -16,13 +16,22 @@ import Modal, {
 
 const EmployeeListing = () => {
 const {state} = useFilter();
-const { tableData }= useEmployee();
+const { tableData, currentItemId, setCurrentItemId }= useEmployee();
+console.log("id", currentItemId);
 const sortedList = sortEmployees(state.sort, tableData);
 const finalFilteredList = selectFilteredEmployees(state, sortedList);
+console.log("list", finalFilteredList);
 const [isOpen, setIsOpen] = useState(false);
 
-const openModal = () => setIsOpen(true);
+const openModal = (id) => {
+  setIsOpen(true);
+  setCurrentItemId(id);
+};
+
 const closeModal = () => setIsOpen(false);
+
+const foundEmployee = tableData.find((data)=> data.id === currentItemId);
+  console.log("emp", foundEmployee);
 
 function createKey(input) {
     return input ? input.replace(/^(the|a|an)/, "").replace(/\s/g, "") : input;
@@ -58,7 +67,7 @@ const rows = finalFilteredList.map((employeeObj) => ({
       },
       {
         key: employeeObj.id,
-        content: <Button onClick={openModal}>Details</Button>
+        content: <Button onClick={()=>openModal(employeeObj.id)}>Details</Button>
       }
     ],
   }));
@@ -69,13 +78,13 @@ const rows = finalFilteredList.map((employeeObj) => ({
         
         <ModalTransition>
         {isOpen && (
-          <Modal onClose={closeModal} v>
+          <Modal onClose={closeModal} >
             <ModalHeader>
               <ModalTitle>Duplicate this page</ModalTitle>
             </ModalHeader>
             <ModalBody>
               Duplicating this page will make it a child page of{' '}
-              <span >Search - user exploration</span>, in the{' '}
+              <span >{foundEmployee?.name}</span>, in the{' '}
               <span >Search & Smarts</span> space.
             </ModalBody>
             <ModalFooter>
