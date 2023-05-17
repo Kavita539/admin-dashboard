@@ -209,7 +209,7 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
 
-"@atlaskit/icon@^21.12.0":
+"@atlaskit/icon@^21.12.0", "@atlaskit/icon@^21.12.1":
   version "21.12.1"
   resolved "https://registry.npmjs.org/@atlaskit/icon/-/icon-21.12.1.tgz"
   integrity sha512-TH/Kci0FVHToBdSHHMpg5WU3PIajcA8olAmeuzd9BRZN/cB8JSv66zWbXf6lR20cOAKDswTDadXm5QyYFsUdqA==
@@ -292,6 +292,16 @@
     "@babel/runtime" "^7.0.0"
     "@emotion/react" "^11.7.1"
     bind-event-listener "^2.1.1"
+
+"@atlaskit/page-header@^10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/page-header/-/page-header-10.4.1.tgz#fd96082dc489fcc30b3a7f401c369e8dd6f73979"
+  integrity sha512-DJTaaorNUMyprTvxGDY5iwM62pBr1LGu9h7c+nmOFnbLYOG2VWxFB1Pq1dC7ZJDK/GNO4fPR+xkGIi+4qUnOZw==
+  dependencies:
+    "@atlaskit/theme" "^12.5.0"
+    "@atlaskit/tokens" "^1.4.0"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/react" "^11.7.1"
 
 "@atlaskit/pagination@^14.3.0":
   version "14.3.1"
@@ -408,9 +418,21 @@
     "@atlaskit/tokens" "^1.4.0"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/tokens@^1.4.0", "@atlaskit/tokens@^1.4.1":
+"@atlaskit/tokens@^1.4.0":
   version "1.4.1"
   resolved "https://registry.npmjs.org/@atlaskit/tokens/-/tokens-1.4.1.tgz"
+  integrity sha512-bRuXt+eAyDM1bJAZ+tDSEA6IgQPMQDDJsYUCzsXNk23VkaTQcUP+RARVU5WzCVnyRjDOumqAxMiRmjEoau8QcQ==
+  dependencies:
+    "@atlaskit/ds-lib" "^2.2.0"
+    "@atlaskit/platform-feature-flags" "^0.2.0"
+    "@babel/runtime" "^7.0.0"
+    "@babel/traverse" "^7.20.0"
+    "@babel/types" "^7.20.0"
+    bind-event-listener "^2.1.1"
+
+"@atlaskit/tokens@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/tokens/-/tokens-1.4.1.tgz#4cad245d4b2c2f7dd9e81589c3f614fd45ea1921"
   integrity sha512-bRuXt+eAyDM1bJAZ+tDSEA6IgQPMQDDJsYUCzsXNk23VkaTQcUP+RARVU5WzCVnyRjDOumqAxMiRmjEoau8QcQ==
   dependencies:
     "@atlaskit/ds-lib" "^2.2.0"

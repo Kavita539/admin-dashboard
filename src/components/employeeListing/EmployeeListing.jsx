@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useEmployee } from "../../context/Employeecontext";
+import { useFilter } from "../../context/Filtercontext";
 import DynamicTable from "@atlaskit/dynamic-table";
-import axios from "axios";
+import { selectFilteredEmployees, sortEmployees } from "../../utils/filterMethods";
 import { head } from "../../utils/tableDataHandler";
 
 const EmployeeListing = () => {
-const [tableData, setTableData] = useState([]);
+const {state} = useFilter();
+const { tableData }= useEmployee();
+const sortedList = sortEmployees(state.sort, tableData);
+const finalFilteredList = selectFilteredEmployees(state, sortedList);
 
-useEffect(() => {
-    (async () => {
-        try {
-            const res = await axios.get("https://dummyjson.com/users");
-            console.log("users",res.data.users);
-            setTableData(res.data.users);
-        } catch (err) {
-            console.log(err)
-        }
-    })();
-}, []);
+// console.log("data", tableData);
 
 function createKey(input) {
     return input ? input.replace(/^(the|a|an)/, "").replace(/\s/g, "") : input;
 }
 
-const rows = tableData.map((employeeObj) => ({
+const rows = finalFilteredList.map((employeeObj) => ({
     key: employeeObj.id,
     cells: [
       

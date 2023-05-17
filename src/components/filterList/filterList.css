@@ -1,0 +1,16 @@
+.filter-conatiner {
+    padding-right: 2rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.filter-sort-list, .filter-employee {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+}

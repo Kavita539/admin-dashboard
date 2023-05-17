@@ -1,11 +1,18 @@
-import EmployeeListing from "../../components/employeeListing/EmployeeListing"
-import Navbar from "../../components/navbar/Navbar"
+import EmployeeListing from "../../components/employeeListing/EmployeeListing";
+import FilterList from "../../components/filterList/FilterList";
+import Navbar from "../../components/navbar/Navbar";
+import "./home.css";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-wrapper">
+      <div className="nav-container">
       <Navbar/>
+      </div>
+      <div className="employee-container">
+      <FilterList/>
       <EmployeeListing/>
+      </div>
     </div>
   )
 }
