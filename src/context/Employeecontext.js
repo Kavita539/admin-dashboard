@@ -9,13 +9,13 @@ const EmployeeProvider = ({children}) => {
 const [tableData, setTableData] = useState([]);
 const [currentItemId, setCurrentItemId] = useState("");
 const [isOpen, setIsOpen] = useState(false);
-console.log("state", isOpen);
+// console.log("state", isOpen);
 
 useEffect(() => {
     (async () => {
         try {
             const res = await axios.get("https://dummyjson.com/users");
-            console.log("users",res.data.users);
+            // console.log("users",res.data.users);
             setTableData(res.data.users);
         } catch (err) {
             console.log(err)

@@ -10,14 +10,20 @@ import "./filterList.css";
 
 const FilterList = () => {
   const{state, dispatch} = useFilter();
+
   const {tableData} = useEmployee();
+
   const bloodGroupNames = tableData.map(bloodGroupName => bloodGroupName.bloodGroup);
   const showbloodGroups =  bloodGroupNames?.filter((item,
     index) => bloodGroupNames.indexOf(item) === index);
+
   const gender = tableData.map(gender => gender.gender);
   const showGender =  gender?.filter((item,
     index) => gender.indexOf(item) === index);
+    
   const universityName = tableData.map(universityName => universityName.university);
+  const showUniversity =  universityName?.filter((item,
+    index) => universityName.indexOf(item) === index);
   
   return (
     <div style={{
@@ -99,7 +105,7 @@ const FilterList = () => {
         </li>
         <li>
           {
-          universityName.map(uni=>(
+          showUniversity.map(uni=>(
           <Checkbox label={uni} isChecked={state.university.includes(uni)} onChange={()=> dispatch({ type:
             "FILTER_BY_UNIVERSITY", payload: uni })}/>
             ))

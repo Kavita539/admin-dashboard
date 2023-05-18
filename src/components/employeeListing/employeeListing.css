@@ -1,5 +1,5 @@
 .employee-listing-table{
-    height: 115rem;
+    height: 110rem;
 }
 
 .modal-body{
@@ -7,12 +7,15 @@
     flex-direction: column;
 }
 
-
-.employee-basic-details, .employee-secondary-details, .shortlist-cta{
+.employee-basic-details, .employee-generic-details, .employee-secondary-details, .employee-address-details, .employee-office-details, .employee-office-address, .employee-bank-details, .shortlist-cta{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.employee-span{
+    margin-right: 8px;
 }
 
 .employee-name-img{
