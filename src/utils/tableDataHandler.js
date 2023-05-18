@@ -67,7 +67,7 @@ export const createShortlistedHead = (withWidth) => {
             {
                 key: "company",
                 content: "Company",
-                width: withWidth ? 40 : undefined,
+                width: withWidth ? 30 : undefined,
             },
             {
                 key: "blood",

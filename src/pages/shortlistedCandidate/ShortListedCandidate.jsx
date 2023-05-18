@@ -23,8 +23,8 @@ const ShortListedCandidate = () => {
         content: <p> {employeeObj.lastName}</p>,
       },
       {
-        key: createKey(employeeObj.company.address.address),
-        content: employeeObj.company.address.address,
+        key: createKey(employeeObj.company.name),
+        content: employeeObj.company.name,
       },
       {
         key: createKey(employeeObj.bloodGroup),
@@ -43,7 +43,7 @@ const ShortListedCandidate = () => {
   
   return (
     <div className='shortlisted-container'>
-      <h3>Shortlisted Candidate</h3>
+      <h3>Shortlisted Candidates</h3>
       <DynamicTable head={shortlistedHead} rows={shortlistedRows} loadingSpinnerSize="large" />
     </div>
   )
