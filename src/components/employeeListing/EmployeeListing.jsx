@@ -89,10 +89,10 @@ const rows = finalList.map((employeeObj) => ({
   return (
     <div className="employee-listing">
        <div className="employee-listing-table">
-       <DynamicTable head={head} rows={rows} rowsPerPage={15} loadingSpinnerSize="large"/>
+       {finalList.length ?
+       (<DynamicTable head={head} rows={rows} rowsPerPage={15} loadingSpinnerSize="large"/>): 
+       (<h1>No data found</h1>)}
        </div>
-
-        
         <ModalTransition>
         {isOpen && (
           <Modal onClose={closeModal}>

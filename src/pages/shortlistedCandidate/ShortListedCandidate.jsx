@@ -57,7 +57,7 @@ const ShortListedCandidate = () => {
     <Navbar/>
     <div className='shortlisted-container'>
       <h3>Shortlisted Candidates</h3>
-      <DynamicTable head={shortlistedHead} rows={shortlistedRows} loadingSpinnerSize="large" />
+      {shortlisted.length ? (<DynamicTable head={shortlistedHead} rows={shortlistedRows} loadingSpinnerSize="large" />) : (<h1>No data found</h1>)}
     </div>
     </>
   )
