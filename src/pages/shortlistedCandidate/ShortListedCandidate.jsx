@@ -1,11 +1,18 @@
 import React from 'react';
 import DynamicTable from "@atlaskit/dynamic-table";
+import Button from '@atlaskit/button/standard-button';
 import { useShortlist } from '../../context/ShortlistContext';
 import { shortlistedHead } from '../../utils/tableDataHandler';
 import "./shortlistedCandidate.css";
+import Navbar from '../../components/navbar/Navbar';
 
 const ShortListedCandidate = () => {
-    const {shortlisted} = useShortlist();
+    const {shortlisted, setShortlisted} = useShortlist();
+    const unShortListHandler = (id) => {
+      const filteredCandidate = shortlisted.filter((data)=> data.id !== id );
+      // console.log("cand", filteredCandidate);
+      setShortlisted(filteredCandidate)
+    }
     function createKey(input) {
       return input ? input.replace(/^(the|a|an)/, "").replace(/\s/g, "") : input;
   }
@@ -38,14 +45,21 @@ const ShortListedCandidate = () => {
         key: createKey(employeeObj.phone),
         content: employeeObj.phone,
       },
+      {
+        key: employeeObj.id,
+        content: <Button appearance="primary" onClick={()=>unShortListHandler(employeeObj.id)}>Unshortlist</Button>
+      }
     ],
   }));
   
   return (
+    <>
+    <Navbar/>
     <div className='shortlisted-container'>
       <h3>Shortlisted Candidates</h3>
       <DynamicTable head={shortlistedHead} rows={shortlistedRows} loadingSpinnerSize="large" />
     </div>
+    </>
   )
 }
 

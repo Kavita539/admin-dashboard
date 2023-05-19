@@ -58,7 +58,7 @@ const selectFilteredEmployees = (state, data) => {
 const handleSearch = (list, searchTerm) => {
     if (searchTerm !== "") {
         return list.filter(item => {
-            return item.firstName.toLowerCase().includes(searchTerm.toLowerCase());
+            return (item.firstName.toLowerCase().includes(searchTerm.toLowerCase()) );
         });
     }
     return list;

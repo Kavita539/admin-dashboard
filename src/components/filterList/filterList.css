@@ -9,6 +9,12 @@
 
 }
 
+.filter-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .filter-sort-list,
 .filter-employee {
     padding-left: 0;

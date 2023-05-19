@@ -5,6 +5,8 @@ import {
   ProductHome,
 } from '@atlaskit/atlassian-navigation';
 import { useFilter } from '../../context/Filtercontext';
+import Button from '@atlaskit/button';
+import { Link } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -19,7 +21,9 @@ const Navbar = () => {
   }
   return (
     <div className="navbar">
+     <Link to="/"> 
     <ProductHome icon={AtlassianIcon} logo={AtlassianLogo}/>
+    </Link>
     <Textfield
       name="basic"
       aria-label="default text field"
@@ -30,6 +34,7 @@ const Navbar = () => {
       value={appliedSearchTerm}
       className="text-field"
     />
+    <div className='nav-list'><Link to="/shortlist"><Button appearance='link'>Shortlisted Candidates</Button></Link></div>
     </div>
   )
 };

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useEmployee } from "../../context/Employeecontext";
 import { useFilter } from "../../context/Filtercontext";
 import DynamicTable from "@atlaskit/dynamic-table";
-import Button from '@atlaskit/button/standard-button'
+import Button from '@atlaskit/button/standard-button';
 import { selectFilteredEmployees, sortEmployees, handleSearch } from "../../utils/filterMethods";
 import { head } from "../../utils/tableDataHandler";
 import Modal, {
@@ -40,17 +40,12 @@ const foundEmployee2 = shortlisted.find((data)=> data.id === currentItemId);
 
 
 const shortListHandler = () => {
-  console.log("emp", foundEmployee);
+  // console.log("emp", foundEmployee);
   setShortlisted((prev)=>{
     return [...prev, foundEmployee]
 })
 }
 
-const unShortListHandler = () => {
-  const filteredCandidate = shortlisted.filter((data)=> data.id === currentItemId );
-  console.log("cand", filteredCandidate);
-  setShortlisted(filteredCandidate)
-}
 
 function createKey(input) {
     return input ? input.replace(/^(the|a|an)/, "").replace(/\s/g, "") : input;
@@ -103,6 +98,15 @@ const rows = finalList.map((employeeObj) => ({
           <Modal onClose={closeModal}>
             <ModalHeader>
               <ModalTitle>Employee Data</ModalTitle>
+              <div className="shortlist-cta">
+                  {foundEmployee2 ?
+                  (
+                  <Button appearance="primary" isDisabled={true}>shortList</Button>
+                  ) : (
+                  <Link to="/shortlist">
+                  <Button appearance="primary" onClick={shortListHandler}>shortList</Button>
+                  </Link>)}
+                </div>
             </ModalHeader>
             <ModalBody>
               <div className="modal-body">
@@ -237,15 +241,6 @@ const rows = finalList.map((employeeObj) => ({
                       {foundEmployee?.bank.currency}
                     </p>
                   </div>
-                </div>
-                <div className="shortlist-cta">
-                  {foundEmployee2 ?
-                  (
-                  <Button appearance="primary" onClick={unShortListHandler} isDisabled={true}>UnshortList</Button>
-                  ) : (
-                  <Link to="/shortlist">
-                  <Button appearance="primary" onClick={shortListHandler}>shortList</Button>
-                  </Link>)}
                 </div>
               </div>
             </ModalBody>

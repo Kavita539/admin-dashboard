@@ -85,6 +85,11 @@ export const createShortlistedHead = (withWidth) => {
                 content: "Phone Number",
                 width: withWidth ? 80 : undefined,
             },
+            {
+                key: "unshortlist",
+                content: "Unshortlist",
+                width: withWidth ? 5 : undefined,
+            },
 
         ],
     };

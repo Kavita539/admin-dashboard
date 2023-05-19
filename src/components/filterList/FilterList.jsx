@@ -6,6 +6,7 @@ import { Radio } from '@atlaskit/radio';
 import { Checkbox } from '@atlaskit/checkbox';
 import { useEmployee } from '../../context/Employeecontext';
 import { useFilter } from '../../context/Filtercontext';
+import Button from '@atlaskit/button';
 import "./filterList.css";
 
 const FilterList = () => {
@@ -37,7 +38,10 @@ const FilterList = () => {
         marginRight: "10px",
         paddingLeft: "20px",
       }} className='filter-conatiner'>
+      <div className='filter-info'>
       <PageHeader>Filter</PageHeader>
+      <Button appearance='subtle' style={{marginLeft: "8rem"}} onClick={()=> dispatch({type: "CLEAR"})}>Clear</Button>
+      </div>
       <ul className='filter-sort-list'>
         <HeadingItem>SORT BY NAME</HeadingItem>
         <li>
@@ -58,7 +62,7 @@ const FilterList = () => {
         </li>
         <li>
           <Radio value="age descending" label="Age (Descending)" name="age-descending"
-            isChecked={state.sort==="age.descending" } onChange={()=> dispatch({ type: "SORT_BY_AGE", payload:
+            isChecked={state.sort==="age-descending" } onChange={()=> dispatch({ type: "SORT_BY_AGE", payload:
             "age-descending" })}/>
         </li>
       </ul>

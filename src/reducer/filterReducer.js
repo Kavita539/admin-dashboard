@@ -57,7 +57,7 @@ const filterReducer = (state, action) => {
         case "CLEAR":
             return {
                 ...state,
-                sort: "",
+                    sort: "",
                     bloodGroup: [],
                     gender: [],
                     university: []
